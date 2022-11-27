@@ -1,0 +1,22 @@
+.badge {
+    margin-left: 1rem;
+    padding: 0.25em 1em;
+    border-radius: 25px;
+}
+
+.primary {
+    background-color: #8a2b06;
+}
+
+.primary:hover, .primary:active {
+    background-color: #6d2103;
+}
+
+.secondary {
+    background-color: #381000;
+}
+
+.secondary:hover, .secondary:active {
+    background-color: #2c0d00;
+}
+
