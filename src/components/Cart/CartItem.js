@@ -27,6 +27,8 @@ const CartItem = (props) => {
         <div className={styles["price-count"]}>
           <span className={styles.price}>${item.price}</span>
           <Input
+            className={styles.input}
+            id={item.id}
             input={{
               value: `x ${item.count}`,
               className: styles.count,

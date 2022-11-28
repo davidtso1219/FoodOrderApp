@@ -1,15 +1,28 @@
-import { useContext } from 'react';
+import { useState, useContext } from "react";
+
+import CartItem from "./CartItem";
+import CartContext from "../../contexts/CartContext";
+import CheckoutForm from "../Checkout/CheckoutForm";
 
 import Card from "../UI/Card";
 import Modal from "../UI/Modal";
 import Button from "../UI/Button";
-import CartItem from "./CartItem";
-import CartContext from "../../contexts/CartContext"
 
 import styles from "./Cart.module.css";
 
 const Cart = (props) => {
   const ctx = useContext(CartContext);
+  const [checkout, setCheckout] = useState(false);
+
+  const onOrderBtnClick = e => {
+    e.preventDefault();
+    setCheckout(true);
+  };
+
+  const onCancelBtnClick = e => {
+    e.preventDefault();
+    setCheckout(false);
+  }
 
   const cartItems = ctx.cart.map((item) => (
     <CartItem key={item.id} item={item}></CartItem>
@@ -22,23 +35,30 @@ const Cart = (props) => {
 
   return (
     <Modal onBackdropClick={props.onBackdropClick}>
-      <Card className={styles.cart}>
-        <div className={styles['cart-items']}>
-          {cartItems}
-        </div>
+      <div className={styles.cart}>
+        <div className={styles["cart-items"]}>{cartItems}</div>
         <div className={styles["total-amount"]}>
           <span>Total Amount</span>
           <span>${totalAmount}</span>
         </div>
-        <div className={styles.buttons}>
-          <Button type="outline-primary" className={styles.button} onClick={props.onCloseBtnClick}>
+        {!checkout && <div className={styles.buttons}>
+          <Button
+            type="outline-primary"
+            className={styles.button}
+            onClick={props.onCloseBtnClick}
+          >
             Close
           </Button>
-          <Button type="primary" className={styles.button} onClick={props.onOrderBtnClick}>
+          <Button
+            type="primary"
+            className={styles.button}
+            onClick={onOrderBtnClick}
+          >
             Order
           </Button>
-        </div>
-      </Card>
+        </div>}
+        {checkout && <CheckoutForm onCancelBtnClick={onCancelBtnClick}/>}
+      </div>
     </Modal>
   );
 };

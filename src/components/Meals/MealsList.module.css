@@ -1,9 +1,13 @@
-.meals-list {
+.card {
     width: 90%;
     max-width: 80rem;
     margin: 3rem auto;
-    border-radius: 15px;
     padding: 2rem;
     background-color: white;
     color: black;
+}
+
+.ul {
+    margin: 0;
+    padding: 0;
 }

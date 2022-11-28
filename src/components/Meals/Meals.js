@@ -5,7 +5,7 @@ const Meals = props => {
   return (
     <>
       <MealsIntro />
-      <MealsList meals={props.meals}></MealsList>
+      <MealsList isLoading={props.isLoading} />
     </>
   );
 }

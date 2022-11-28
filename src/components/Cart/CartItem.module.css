@@ -31,6 +31,14 @@
     color: #8a2b06;
 }
 
+.input label {
+    font-weight: bold;
+}
+
+.input input {
+    width: 3rem;
+}
+
 .count {
     text-align: center;
 }

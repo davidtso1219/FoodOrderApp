@@ -1,5 +1,7 @@
 .cart {
     background-color: white;
+    max-height: 30rem;
+    overflow: scroll;
 }
 
 .cart-items {
