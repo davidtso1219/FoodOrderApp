@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.description {
+.info {
     width: 30%;
     min-width: 4rem;
     display: flex;
@@ -21,26 +21,22 @@
     font-size: 1.5rem;
 }
 
-.price-count {
+.summary {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+.count {
+    width: 3rem;
+    text-align: center;
+    border: 1px solid #c3c2c2;
+    border-radius: 5px;
+    color: rgb(99, 99, 99);
+}
+
 .price {
     color: #8a2b06;
-}
-
-.input label {
-    font-weight: bold;
-}
-
-.input input {
-    width: 3rem;
-}
-
-.count {
-    text-align: center;
 }
 
 .buttons {

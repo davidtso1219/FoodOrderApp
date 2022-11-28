@@ -8,3 +8,21 @@
     border: 1px solid #ccc;
     font: inherit;
 }
+
+.invalid {
+    color: #b40e0e;
+}
+
+.invalid input {
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+}
+
+.invalid input:focus {
+    border-color: #ff8800;
+    background-color: #fbe8d2;
+}
+
+.error-text {
+    margin: 0;
+}

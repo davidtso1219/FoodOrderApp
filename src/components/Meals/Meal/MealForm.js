@@ -23,13 +23,13 @@ const MealForm = (props) => {
       <Input
         label="Amount"
         id={id}
+        ref={inputRef}
+        value={1}
         input={{
-          ref: inputRef,
           type: 'number',
           min: 1,
           max: 5,
           step: 1,
-          defaultValue: 1,
           className: styles.input
         }}
       />

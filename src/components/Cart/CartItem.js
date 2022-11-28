@@ -1,61 +1,38 @@
-import { useContext } from "react";
-
 import Button from "../UI/Button";
-import Input from "../UI/Input";
-import CartContext from "../../contexts/CartContext";
 
 import styles from "./CartItem.module.css";
 
 const CartItem = (props) => {
-  const ctx = useContext(CartContext);
-
-  const item = props.item;
-
-  const addAnItem = (e) => {
-    e.preventDefault();
-    ctx.addItems(item, 1);
-  };
-  const removeAnItem = (e) => {
-    e.preventDefault();
-    ctx.removeItems(item, 1);
-  };
+  const price = `$${props.price.toFixed(2)}`;
 
   return (
-    <div className={styles.item}>
-      <div className={styles.description}>
-        <div className={styles.name}>{item.name}</div>
-        <div className={styles["price-count"]}>
-          <span className={styles.price}>${item.price}</span>
-          <Input
-            className={styles.input}
-            id={item.id}
-            input={{
-              value: `x ${item.count}`,
-              className: styles.count,
-              onChange: (e) => e.preventDefault(),
-              disabled: "disabled",
-            }}
-          />
+    <li className={styles.item}>
+      <div className={styles.info}>
+        <span className={styles.name}>{props.name}</span>
+        <div className={styles.summary}>
+          <span className={styles.price}>{price}</span>
+          <span className={styles.count}>x {props.count}</span>
         </div>
       </div>
       <div className={styles.buttons}>
         <Button
           type="outline-primary"
           className={styles.button}
-          onClick={removeAnItem}
+          onClick={props.onRemove}
         >
           -
         </Button>
         <Button
           type="outline-primary"
           className={styles.button}
-          onClick={addAnItem}
+          onClick={props.onAdd}
         >
           +
         </Button>
       </div>
-    </div>
+    </li>
   );
+
 };
 
 export default CartItem;
